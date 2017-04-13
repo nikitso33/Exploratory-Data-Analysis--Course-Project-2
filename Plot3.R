@@ -12,13 +12,9 @@ library(ggplot2)
 # which of these four sources have seen decreases in emissions from 1999 2008 for Baltimore City? 
 # Which have seen increases in emissions from 1999 2008? 
 # Use the ggplot2 plotting system to make a plot answer this question.
-
 # 24510 is Baltimore if we see plot2.R
 subsetNEI  <- NEI[NEI$fips=="24510", ]
-
 aggregatedTotalByYearAndType <- aggregate(Emissions ~ year + type, subsetNEI, sum)
-
-
 
 png("plot3.png", width=640, height=480)
 g <- ggplot(aggregatedTotalByYearAndType, aes(year, Emissions, color = type))
